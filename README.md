@@ -20,14 +20,14 @@ This is a contrived example to demonstrate the use of parallel_tests gem (https:
 3. Run rspec and observe the full test time
   ```
   RAILS_ENV=test rake db:create db:migrate
+
   time bundle exec rspec
   ```
 
 4. Run parallel spec and observe the full test time
   ```
-  rake parallel:create
-  rake parallel:migrate
-  
+  rake parallel:create parallel:migrate
+
   RAILS_ENV=test bundle exec parallel:spec
   ```
 
