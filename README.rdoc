@@ -1,28 +1,29 @@
-== README
+== parallel_tests_demo
+This is a contrived example to demonstrate the use of parallel_tests gem (https://github.com/grosser/parallel_tests).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+1. Bundle install
 
-* Ruby version
+bundle
 
-* System dependencies
+2. Create fillers (1000 symlinks to the same model spec file)
 
-* Configuration
+cd spec/models/fillers
+./create_fillers.sh
+cd ../../..
 
-* Database creation
+3. Run rspec and observe the full test time
 
-* Database initialization
+RAILS_ENV=test rake db:create db:migrate
+time bundle exec rspec
 
-* How to run the test suite
+4. Run parallel spec and observe the full test time
 
-* Services (job queues, cache servers, search engines, etc.)
+rake parallel:create
+rake parallel:migrate
 
-* Deployment instructions
+RAILS_ENV=test bundle exec parallel:spec
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Credits
+Creating symlinks as fillers is a trick "stolen" from RailsCasts (https://github.com/railscasts/413-fast-tests).
