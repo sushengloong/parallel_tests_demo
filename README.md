@@ -28,7 +28,7 @@ This is a contrived example to demonstrate the use of parallel_tests gem (https:
   ```
   rake parallel:create parallel:migrate
 
-  RAILS_ENV=test bundle exec parallel:spec
+  bundle exec parallel:spec
   ```
 
 ## Credits
