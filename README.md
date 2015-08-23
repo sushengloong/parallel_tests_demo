@@ -28,7 +28,7 @@ This is a contrived example to demonstrate the use of parallel_tests gem (https:
   ```
   rake parallel:create parallel:migrate
 
-  bundle exec parallel:spec
+  time bundle exec parallel:spec
   ```
 
 ## Credits
