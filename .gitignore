@@ -15,3 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore filler files which can always be regenerated
+/spec/models/fillers/*_spec.rb
